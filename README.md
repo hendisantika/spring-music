@@ -96,3 +96,18 @@ $ cf restart
 #### Database drivers
 
 Database drivers for MySQL, Postgres, Microsoft SQL Server, MongoDB, and Redis are included in the project. To connect to an Oracle database, you will need to download the appropriate driver (e.g. from http://www.oracle.com/technetwork/database/enterprise-edition/jdbc-112010-090769.html?ssSourceSiteId=otnjp), add the driver .jar file to the `src/main/webapp/WEB-INF/lib` directory in the project, and re-build the application .jar file.
+
+Screenshot
+
+Home Page
+
+![Home Page](img/home.png "Home Page")
+
+Grid View
+
+![Grid View](img/grid.png "Grid View")
+
+Add New Album Page
+
+![Add New Album Page](img/add.png "Add New Album Page")
+
