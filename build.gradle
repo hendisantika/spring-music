@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '3.1.6'
+        springBootVersion = '3.1.7'
         springCloudConnectorsVersion = '1.2.6.RELEASE'
     }
 
