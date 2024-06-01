@@ -1,31 +1,15 @@
-buildscript {
-    ext {
-        springBootVersion = '3.2.6'
-        springCloudConnectorsVersion = '1.2.6.RELEASE'
-    }
-
-    repositories {
-        jcenter()
-        mavenCentral()
-        maven { url "https://repo.spring.io/plugins-release" }
-    }
-
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    }
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.6'
+    id 'io.spring.dependency-management' version '1.1.5'
 }
 
-apply plugin: 'java'
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
 
-apply plugin: 'eclipse-wtp'
-apply plugin: 'idea'
-
-apply plugin: 'org.springframework.boot'
-
-version = '1.0'
-
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+java {
+    sourceCompatibility = '21'
+}
 
 repositories {
     mavenCentral()
@@ -33,43 +17,39 @@ repositories {
 
 dependencies {
     // Spring Boot
-    compile "org.springframework.boot:spring-boot-starter-web"
-    compile "org.springframework.boot:spring-boot-starter-actuator"
-    compile "org.springframework.boot:spring-boot-starter-data-jpa"
-    compile "org.springframework.boot:spring-boot-starter-data-mongodb"
-    compile "org.springframework.boot:spring-boot-starter-data-redis"
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.springframework.boot:spring-boot-starter-actuator"
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+    implementation "org.springframework.boot:spring-boot-starter-data-mongodb"
+    implementation "org.springframework.boot:spring-boot-starter-data-redis"
 
     // Spring Cloud Connectors
-    compile "org.springframework.cloud:spring-cloud-core:${springCloudConnectorsVersion}"
-    compile "org.springframework.cloud:spring-cloud-spring-service-connector:${springCloudConnectorsVersion}"
-    compile "org.springframework.cloud:spring-cloud-cloudfoundry-connector:${springCloudConnectorsVersion}"
+//    implementation "org.springframework.cloud:spring-cloud-core:${springCloudConnectorsVersion}"
+//    implementation "org.springframework.cloud:spring-cloud-spring-service-connector:${springCloudConnectorsVersion}"
+//    implementation "org.springframework.cloud:spring-cloud-cloudfoundry-connector:${springCloudConnectorsVersion}"
 
     // JPA Persistence
-    compile "commons-dbcp:commons-dbcp"
-    runtime "com.h2database:h2"
-    runtime "mysql:mysql-connector-java"
-    runtime "postgresql:postgresql:9.1-901-1.jdbc4"
-    runtime "com.microsoft.sqlserver:mssql-jdbc:6.1.0.jre8"
+    implementation "commons-dbcp:commons-dbcp"
+    runtimeOnly "com.h2database:h2"
+    runtimeOnly "mysql:mysql-connector-java"
+    runtimeOnly "postgresql:postgresql:9.1-901-1.jdbc4"
+    runtimeOnly "com.microsoft.sqlserver:mssql-jdbc:6.1.0.jre8"
 
     // Redis Persistence
-    compile "redis.clients:jedis"
+    implementation "redis.clients:jedis"
 
     // Webjars
-    compile "org.webjars:bootstrap:3.1.1"
-    compile "org.webjars:angularjs:1.2.16"
-    compile "org.webjars:angular-ui:0.4.0-2"
-    compile "org.webjars:angular-ui-bootstrap:0.10.0-1"
-    compile "org.webjars:jquery:2.1.0-2"
+    implementation "org.webjars:bootstrap:3.1.1"
+    implementation "org.webjars:angularjs:1.2.16"
+    implementation "org.webjars:angular-ui:0.4.0-2"
+    implementation "org.webjars:angular-ui-bootstrap:0.10.0-1"
+    implementation "org.webjars:jquery:2.1.0-2"
 
     // Testing
-    testCompile "junit:junit"
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-jar {
-    baseName = "spring-music"
-    version = "" // omit the version from the war file name
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.14'
+tasks.named('test') {
+    useJUnitPlatform()
 }
