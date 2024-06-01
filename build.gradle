@@ -24,16 +24,19 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-data-redis"
 
     // Spring Cloud Connectors
-//    implementation "org.springframework.cloud:spring-cloud-core:${springCloudConnectorsVersion}"
-//    implementation "org.springframework.cloud:spring-cloud-spring-service-connector:${springCloudConnectorsVersion}"
-//    implementation "org.springframework.cloud:spring-cloud-cloudfoundry-connector:${springCloudConnectorsVersion}"
+    implementation "org.springframework.cloud:spring-cloud-core:1.2.9.RELEASE"
+    implementation "org.springframework.cloud:spring-cloud-spring-service-connector:2.0.9.RELEASE"
+    implementation "org.springframework.cloud:spring-cloud-cloudfoundry-connector:2.0.9.RELEASE"
 
     // JPA Persistence
-    implementation "commons-dbcp:commons-dbcp"
+//    implementation "commons-dbcp:commons-dbcp"
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2
+    implementation 'org.apache.commons:commons-dbcp2:2.12.0'
+
     runtimeOnly "com.h2database:h2"
-    runtimeOnly "mysql:mysql-connector-java"
-    runtimeOnly "postgresql:postgresql:9.1-901-1.jdbc4"
-    runtimeOnly "com.microsoft.sqlserver:mssql-jdbc:6.1.0.jre8"
+    runtimeOnly "com.mysql:mysql-connector-j"
+    implementation 'org.postgresql:postgresql:42.7.3'
+//    implementation 'com.microsoft.sqlserver:mssql-jdbc:12.7.0'
 
     // Redis Persistence
     implementation "redis.clients:jedis"
