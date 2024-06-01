@@ -1,6 +1,6 @@
 package org.cloudfoundry.samples.music.config.data;
 
-import com.mongodb.MongoClient;
+import com.mongodb.client.MongoClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
