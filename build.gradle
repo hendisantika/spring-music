@@ -46,7 +46,7 @@ dependencies {
 
     // Webjars
     implementation "org.webjars:bootstrap:5.3.3"
-    implementation "org.webjars:angularjs:1.2.16"
+    implementation "org.webjars:angularjs:1.8.3"
     implementation "org.webjars:angular-ui:0.4.0-3"
     implementation "org.webjars:angular-ui-bootstrap:0.10.0-1"
     implementation "org.webjars:jquery:2.1.0-2"
