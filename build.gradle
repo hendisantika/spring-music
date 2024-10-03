@@ -45,7 +45,7 @@ dependencies {
     implementation "redis.clients:jedis"
 
     // Webjars
-    implementation "org.webjars:bootstrap:3.1.1"
+    implementation "org.webjars:bootstrap:5.0.0"
     implementation "org.webjars:angularjs:1.2.16"
     implementation "org.webjars:angular-ui:0.4.0-2"
     implementation "org.webjars:angular-ui-bootstrap:0.10.0-1"
