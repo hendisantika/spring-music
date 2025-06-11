@@ -38,7 +38,7 @@ dependencies {
 
     runtimeOnly "com.h2database:h2"
     runtimeOnly "com.mysql:mysql-connector-j"
-    implementation 'org.postgresql:postgresql:42.7.6'
+    implementation 'org.postgresql:postgresql:42.7.7'
 //    implementation 'com.microsoft.sqlserver:mssql-jdbc:12.7.0'
 
     // Redis Persistence
