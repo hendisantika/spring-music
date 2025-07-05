@@ -1,5 +1,7 @@
 package org.cloudfoundry.samples.music.config.data;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.cloudfoundry.samples.music.domain.Album;
 import org.cloudfoundry.samples.music.repositories.redis.RedisAlbumRepository;
 import org.springframework.context.annotation.Bean;
@@ -27,7 +29,13 @@ public class RedisConfig {
         template.setConnectionFactory(redisConnectionFactory);
 
         RedisSerializer<String> stringSerializer = new StringRedisSerializer();
-        RedisSerializer<Album> albumSerializer = new Jackson2JsonRedisSerializer<>(Album.class);
+
+        // Create ObjectMapper for Jackson serialization
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
+
+        // Create Jackson2JsonRedisSerializer with ObjectMapper
+        Jackson2JsonRedisSerializer<Album> albumSerializer = new Jackson2JsonRedisSerializer<>(objectMapper, Album.class);
 
         template.setKeySerializer(stringSerializer);
         template.setValueSerializer(albumSerializer);
