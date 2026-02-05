@@ -63,7 +63,7 @@ dependencies {
     implementation "org.webjars:angularjs:1.8.3"
     implementation "org.webjars:angular-ui:0.4.0-3"
     implementation "org.webjars:angular-ui-bootstrap:2.5.0"
-    implementation "org.webjars:jquery:3.7.1"
+    implementation "org.webjars:jquery:4.0.0"
 
     // Testing
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
